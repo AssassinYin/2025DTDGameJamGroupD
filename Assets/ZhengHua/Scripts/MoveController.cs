@@ -168,6 +168,17 @@ namespace ZhengHua
         /// <param name="heightPoints">跳幾格高</param>
         public void Jump(int heightPoints = 0)
         {
+            // 未指定往前移動幾格，預設往前移動跳躍高度的兩倍
+            Jump(heightPoints, heightPoints * 2);
+        }
+
+        /// <summary>
+        /// 跳躍
+        /// </summary>
+        /// <param name="heightPoints">跳幾格高</param>
+        /// <param name="movementPoint">往前幾格</param>
+        public void Jump(int heightPoints = 0, int movementPoint = 0)
+        {
             if (heightPoints <= 0)
                 return;
             if (isMoving)
@@ -175,8 +186,7 @@ namespace ZhengHua
             stopTimer = 0f;
             hightPoints = heightPoints;
             turnAroundEnd.AddListener(AddJumpForce);
-            // 跳躍移動距離固定為跳躍高度 * 2
-            Move(heightPoints * 2);
+            Move(movementPoint);
         }
 
         private float GetJumpForce(int heightPoints)
