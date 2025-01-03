@@ -188,7 +188,7 @@ namespace ZhengHua
                 case 2:
                     return 330f;
                 default:
-                    return jumpForce;
+                    return 0f;
             }
         }
 
