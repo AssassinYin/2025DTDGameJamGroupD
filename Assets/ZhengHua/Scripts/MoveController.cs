@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
+using System.Data;
 
 namespace ZhengHua
 {
@@ -211,6 +213,50 @@ namespace ZhengHua
             stopTimer = 0f;
             this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y), Mathf.RoundToInt(this.transform.position.z));
             onMoveEnd?.Invoke();
+        }
+
+        /// <summary>
+        /// 往左右瞬移
+        /// </summary>
+        /// <param name="position">預計要移動的位置(相對座標)</param>
+        public void TeleportX(int lehgth = 1)
+        {
+            Teleport(new Vector2(lehgth, 0));
+        }
+
+        /// <summary>
+        /// 往上下瞬移
+        /// </summary>
+        /// <param name="position">預計要移動的位置(相對座標)</param>
+        public void TeleportY(int lehgth = 1)
+        {
+            Teleport(new Vector2(0, lehgth));
+        }
+
+        /// <summary>
+        /// 瞬間移動
+        /// </summary>
+        /// <param name="position">預計要移動的位置(相對座標)</param>
+        public void Teleport(Vector2 position)
+        {
+            turnAroundEnd.AddListener(TeleportExcute);
+            teleportTarget = this.transform.position + new Vector3(position.x, position.y, 0);
+            if (position.x < 0)
+            {
+                TurnAround();
+            }
+            else
+            {
+                turnAroundEnd?.Invoke();
+            }
+        }
+
+        private Vector3 teleportTarget;
+
+        private void TeleportExcute()
+        {
+            turnAroundEnd.RemoveListener(TeleportExcute);
+            this.transform.position = teleportTarget;
         }
     }
 }
