@@ -24,10 +24,10 @@ namespace ZhengHua
         [SerializeField]
         private float rotationSpeed = 10f;
         /// <summary>
-        /// 移動速度
+        /// 最高移動速度
         /// </summary>
         [SerializeField]
-        private float moveSpeed = 2f;
+        private float maxMoveSpeed = 2f;
 
         private void Awake()
         {
@@ -65,7 +65,7 @@ namespace ZhengHua
                     this.isMoving = false;
                     rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                     this.transform.position = new Vector3(targetX, this.transform.position.y, this.transform.position.z);
-                    moveEnd?.Invoke();
+                    onMoveEnd?.Invoke();
                 }
             }
         }
@@ -75,9 +75,9 @@ namespace ZhengHua
             if (isMoving && !isTurnAround)
             {
                 // 維持移動速度
-                if(Mathf.Abs(rb.linearVelocityX) > moveSpeed)
+                if(Mathf.Abs(rb.linearVelocityX) > maxMoveSpeed)
                 {
-                    rb.linearVelocity = new Vector2(this.transform.right.x * moveSpeed, rb.linearVelocity.y);
+                    rb.linearVelocity = new Vector2(this.transform.right.x * maxMoveSpeed, rb.linearVelocity.y);
                 }
                 else
                 {
@@ -102,10 +102,11 @@ namespace ZhengHua
         }
 
         private float targetX;
+        /// <summary>
+        /// 移動推力，可以控制移動加速度
+        /// </summary>
         [SerializeField]
         private float unitForce;
-        [SerializeField]
-        private float jumpForce;
         /// <summary>
         /// 往前移動幾格
         /// </summary>
@@ -187,7 +188,7 @@ namespace ZhengHua
                 case 2:
                     return 330f;
                 default:
-                    return jumpForce;
+                    return 0f;
             }
         }
 
@@ -199,7 +200,7 @@ namespace ZhengHua
             isMoving = false;
             stopTimer = 0f;
             this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y), Mathf.RoundToInt(this.transform.position.z));
-            moveEnd?.Invoke();
+            onMoveEnd?.Invoke();
         }
     }
 }
