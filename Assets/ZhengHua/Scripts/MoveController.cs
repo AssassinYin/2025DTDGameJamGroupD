@@ -1,11 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 
 namespace ZhengHua
 {
     public class MoveController : MonoBehaviour
     {
-        public UnityEvent moveEnd;
+        /// <summary>
+        /// ç§»å‹•çµæŸäº‹ä»¶
+        /// </summary>
+        public UnityEvent onMoveEnd;
+
         private Rigidbody2D rb;
         private bool isMoving = false;
         private bool isTurnAround = false;
@@ -15,12 +19,12 @@ namespace ZhengHua
         private float stopTimer = 0f;
 
         /// <summary>
-        /// Âà¨­³t«×
+        /// è½‰èº«é€Ÿåº¦
         /// </summary>
         [SerializeField]
         private float rotationSpeed = 10f;
         /// <summary>
-        /// ²¾°Ê³t«×
+        /// ç§»å‹•é€Ÿåº¦
         /// </summary>
         [SerializeField]
         private float moveSpeed = 2f;
@@ -32,7 +36,7 @@ namespace ZhengHua
                 rb = GetComponent<Rigidbody2D>();
                 if (rb == null)
                 {
-                    Debug.LogWarning("½Ğ¥ı¥[¤JRigidbody2D¤¸¥ó");
+                    Debug.LogWarning("è«‹å…ˆåŠ å…¥Rigidbody2Då…ƒä»¶");
                 }
             }
             turnAroundEnd = new UnityEvent();
@@ -49,7 +53,7 @@ namespace ZhengHua
                 {
                     this.transform.rotation = Quaternion.Euler(0, targetRotation.y, 0);
                     isTurnAround = false;
-                    // Âà¨­§¹«á¶i¦æ²¾°Ê
+                    // è½‰èº«å®Œå¾Œé€²è¡Œç§»å‹•
                     turnAroundEnd?.Invoke();
                 }
             }
@@ -61,6 +65,7 @@ namespace ZhengHua
                     this.isMoving = false;
                     rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                     this.transform.position = new Vector3(targetX, this.transform.position.y, this.transform.position.z);
+                    moveEnd?.Invoke();
                 }
             }
         }
@@ -69,7 +74,7 @@ namespace ZhengHua
         {
             if (isMoving && !isTurnAround)
             {
-                // ºû«ù²¾°Ê³t«×
+                // ç¶­æŒç§»å‹•é€Ÿåº¦
                 if(Mathf.Abs(rb.linearVelocityX) > moveSpeed)
                 {
                     rb.linearVelocity = new Vector2(this.transform.right.x * moveSpeed, rb.linearVelocity.y);
@@ -79,7 +84,7 @@ namespace ZhengHua
                     rb.AddForce(this.transform.right * unitForce);
                 }
 
-                // ¥dÂIÀË¬d
+                // å¡é»æª¢æŸ¥
                 if(rb.linearVelocity.magnitude < 0.1f)
                 {
                     stopTimer += Time.fixedDeltaTime;
@@ -102,7 +107,7 @@ namespace ZhengHua
         [SerializeField]
         private float jumpForce;
         /// <summary>
-        /// ©¹«e²¾°Ê´X®æ
+        /// å¾€å‰ç§»å‹•å¹¾æ ¼
         /// </summary>
         /// <param name="movementPoints"></param>
         public void Move(int movementPoints = 0)
@@ -111,7 +116,7 @@ namespace ZhengHua
                 return;
             if (movementPoints == 0)
             {
-                Debug.LogWarning("½Ğ¿é¤J²¾°Ê®æ¼Æ");
+                Debug.LogWarning("è«‹è¼¸å…¥ç§»å‹•æ ¼æ•¸");
                 return;
             }
             stopTimer = 0f;
@@ -129,7 +134,7 @@ namespace ZhengHua
         }
 
         /// <summary>
-        /// ¬I¥[²¾°Ê±À¤O
+        /// æ–½åŠ ç§»å‹•æ¨åŠ›
         /// </summary>
         private void AddMoveForce()
         {
@@ -139,7 +144,7 @@ namespace ZhengHua
 
         private int hightPoints;
         /// <summary>
-        /// ¬I¥[¸õÅD±À¤O
+        /// æ–½åŠ è·³èºæ¨åŠ›
         /// </summary>
         private void AddJumpForce()
         {
@@ -148,7 +153,7 @@ namespace ZhengHua
         }
 
         /// <summary>
-        /// Âà¨­
+        /// è½‰èº«
         /// </summary>
         private void TurnAround()
         {
@@ -157,9 +162,9 @@ namespace ZhengHua
         }
 
         /// <summary>
-        /// ¸õÅD
+        /// è·³èº
         /// </summary>
-        /// <param name="heightPoints">¸õ´X®æ°ª</param>
+        /// <param name="heightPoints">è·³å¹¾æ ¼é«˜</param>
         public void Jump(int heightPoints = 0)
         {
             if (heightPoints <= 0)
@@ -169,7 +174,7 @@ namespace ZhengHua
             stopTimer = 0f;
             hightPoints = heightPoints;
             turnAroundEnd.AddListener(AddJumpForce);
-            // ¸õÅD²¾°Ê¶ZÂ÷©T©w¬°¸õÅD°ª«× * 2
+            // è·³èºç§»å‹•è·é›¢å›ºå®šç‚ºè·³èºé«˜åº¦ * 2
             Move(heightPoints * 2);
         }
 
@@ -187,13 +192,14 @@ namespace ZhengHua
         }
 
         /// <summary>
-        /// µo¥Í¥dÂI
+        /// ç™¼ç”Ÿå¡é»
         /// </summary>
         private void ForceStop()
         {
             isMoving = false;
             stopTimer = 0f;
             this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y), Mathf.RoundToInt(this.transform.position.z));
+            moveEnd?.Invoke();
         }
     }
 }
