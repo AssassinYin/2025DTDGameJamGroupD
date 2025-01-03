@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ZhengHua;
 
 namespace ZhXun
 {
@@ -10,7 +11,8 @@ namespace ZhXun
         public override void Execute()
         {
             //玩家移動steps格
-            Debug.Log("玩家移動:" + steps + "格");
+            MoveController player = Transform.FindFirstObjectByType<MoveController>();
+            player.Move(steps);
         }
     }
 }
