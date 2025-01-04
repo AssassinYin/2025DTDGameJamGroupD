@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27d13f2227b3704a8dab6c55b253d9a, type: 3}
+  m_Name: CardLibray
+  m_EditorClassIdentifier: 
+  cardList:
+  - <Name>k__BackingField: "\u8D70\u4E00\u6B65"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: 0d673ff7672537c4f91b5dfdf4bebdca, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: daab35191f2fa4f4eac4047c41f4c06b, type: 2}
+    <frontDescription>k__BackingField: "\u4F9D\u5FAA\u53E4\u8001\u8C93\u7FA4\u7684\u6B65\u4F10\uFF0C\u5411\u524D\u79FB\u52D5
+      1 \u6B65 "
+    <backSprite>k__BackingField: {fileID: 21300000, guid: c59ccae0e1f930549a329d8d038444f3, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: 751d91a741e48d14e97dd5aceddc775e, type: 2}
+    <backDescription>k__BackingField: "\u4F60\u9003\u96E2\u4E86\u8C93\u7FA4\u6574\u9F4A\u7684\u6B65\u4F10\uFF0C\u5411\u5F8C\u79FB\u52D5
+      1 \u6B65"
+  - <Name>k__BackingField: "\u8D70\u5169\u6B65"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: a68551e4ccf0438489629893be97a86f, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 972c824bec7778347b0e5d3e2093f48f, type: 2}
+    <frontDescription>k__BackingField: "\u8FFD\u5C0B\u9060\u53E4\u7FA4\u8C93\u7684\u8A98\u60D1\uFF0C\u5411\u524D\u79FB\u52D5
+      2 \u6B65 "
+    <backSprite>k__BackingField: {fileID: 21300000, guid: acb2db106a2ee4848802c127b0295876, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: c3980b99f67f95d40a2c067024b00fcb, type: 2}
+    <backDescription>k__BackingField: "\u4F60\u5A49\u62D2\u4E86\u7FA4\u8C93\u71B1\u60C5\u7684\u9080\u8ACB\uFF0C\u5411\u5F8C\u79FB\u52D5
+      2 \u6B65"
+  - <Name>k__BackingField: "\u8D70\u4E09\u6B65"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: 666caa09de139e8498738d8839d74799, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: cf569dcb144112b44b9689d869f903a3, type: 2}
+    <frontDescription>k__BackingField: "\u6DF1\u5165\u6C38\u6046\u8C93\u795E\u7684\u5922\u5883\uFF0C\u5411\u524D\u79FB\u52D5
+      3 \u6B65 "
+    <backSprite>k__BackingField: {fileID: 21300000, guid: 750b4e5ee58cb304a80ba6cfe390094f, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: eafe626affa23404c894d2353ae1548c, type: 2}
+    <backDescription>k__BackingField: "\u4F60\u53AD\u60E1\u8457\u8C93\u795E\u6C38\u6046\u7684\u8A31\u8AFE\uFF0C\u5411\u5F8C\u79FB\u52D5
+      3 \u6B65"
+  - <Name>k__BackingField: "\u8DF3\u4E00\u683C"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: a0e7afc6e931e5a4d94ca271a5a0199c, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 0de8369be87ceb443bbbdac9dac54016, type: 2}
+    <frontDescription>k__BackingField: "\u6708\u795E\u8C93\u7FA4\u7684\u5438\u5F15\uFF0C\u5411\u524D\u8DF3\u8E8D
+      1 \u683C\u9AD8\uFF0C2 \u683C\u9060"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: cbea7d86c264f354b88abf2b7dbf2308, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: d6a0ed88180cda04aa94422f5a5164a7, type: 2}
+    <backDescription>k__BackingField: "\u7D14\u7CB9\u7406\u6027\u4F7F\u4F60\u80CC\u5411\u6708\u795E\u8C93\u7FA4\uFF0C\u5411\u5F8C\u8DF3\u8E8D1
+      \u683C\u9AD8\uFF0C2 \u683C\u9060"
+  - <Name>k__BackingField: "\u8DF32\u683C"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: cbea7d86c264f354b88abf2b7dbf2308, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 422bad88bca8c9646a729f49846deec2, type: 2}
+    <frontDescription>k__BackingField: "\u6708\u795E\u8C93\u7FA4\u7684\u524D\u64B2\uFF0C\u5411\u524D\u8DF3\u8E8D
+      2 \u683C\u9AD8\uFF0C4 \u683C\u9060"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: 768cc0fec7090b041a60b4daa2604ce4, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: a30247279ca91a24a84158a0523e8205, type: 2}
+    <backDescription>k__BackingField: "\u9ED1\u6697\u6E3E\u6C8C\u5C07\u4F60\u62C9\u96E2\u6708\u795E\u8C93\u7FA4\uFF0C\u5411\u5F8C\u8DF3\u8E8D
+      2 \u683C\u9AD8\uFF0C4 \u683C\u9060"
+  - <Name>k__BackingField: "\u524D\u5F8C\u77AC\u79FB2\u683C"
+    <frontSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 6e5e6fdd0e0939d42bc9ee97e78f08f2, type: 2}
+    <frontDescription>k__BackingField: "\u7336\u683C\u7D22\u6258\u65AF\u907A\u843D\u7684\u5149\u8F1D\uFF0C\u5411\u524D\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
+    <backSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: edf41c428e7273942bd7d7b7b867ef14, type: 2}
+    <backDescription>k__BackingField: "\u7336\u683C\u7D22\u6258\u65AF\u907A\u843D\u7684\u5149\u8F1D\uFF0C\u5411\u5F8C\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
+  - <Name>k__BackingField: "\u4E0A\u4E0B\u77AC\u79FB2\u683C"
+    <frontSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 60470b0861509c345a2c65621dcb1a53, type: 2}
+    <frontDescription>k__BackingField: "\u7336\u683C\u7D22\u6258\u65AF\u5931\u843D\u7684\u6CE1\u6CAB\uFF0C\u5411\u4E0A\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
+    <backSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: a8af7e567237b8849915a9af7bbef1e8, type: 2}
+    <backDescription>k__BackingField: "\u7336\u683C\u7D22\u6258\u65AF\u5931\u843D\u7684\u6CE1\u6CAB\uFF0C\u5411\u4E0B\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
