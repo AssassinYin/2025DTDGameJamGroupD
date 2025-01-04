@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Sound Asset
+  m_EditorClassIdentifier: Assembly-CSharp:Taco:SoundAsset
+  sounds:
+  - name: Walk
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 8a8c8d7a846f7ea4f910b3c7de3d876f, type: 3}
+  - name: Jump
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 486fa11f4806dc444b2ef2093bfc0eae, type: 3}
+  - name: Sit
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: b60bbbdf95d037f45a3c89d65b9c71b8, type: 3}
+  - name: Bat
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: e305f09779b4ebb43b1086297b9fc175, type: 3}
+  - name: Blink
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 0}
+  - name: Mouse
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: fa14d080f2cba8544b1ed8eb107bef54, type: 3}
+  - name: Pray
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 63579d18598326a48aed562e51be35b2, type: 3}
+  - name: Crack
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 31b260c58020fad4eaf4286d224c3e3d, type: 3}
+  - name: Howling
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 0aa2ba8c148618246b4ffec0cb6ca49d, type: 3}
+  - name: Click
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 1e8bf83f311cd6c4db416f2db22206be, type: 3}
+  - name: Death
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 2ec83865a930e654586b42a71e76c9d8, type: 3}
