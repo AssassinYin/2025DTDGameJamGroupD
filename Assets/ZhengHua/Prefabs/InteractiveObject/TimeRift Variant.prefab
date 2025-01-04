@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f27052b68a55def4a94a42de93f7c486, type: 3}
     - target: {fileID: 2503004491513179832, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2503004491513179832, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2503004491513179832, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56,8 +56,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeRift Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9011757054232296511, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011757054232296511, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5017741106911397897, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6164967515799334251}
   m_SourcePrefab: {fileID: 100100000, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+--- !u!1 &4238212453897096523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5017741106911397897, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+  m_PrefabInstance: {fileID: 9183894303946573122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6164967515799334251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238212453897096523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6b318527aafce42a403a616d4686e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouchExecute: 1
+  endingEnum: 1

@@ -6,9 +6,9 @@ namespace ZhengHua
     {
         None,
         /// <summary>
-        /// 死亡結局_空間裂隙
+        /// 死亡結局_時間裂隙
         /// </summary>
-        DeadSpaceRift,
+        DeadTimeRift,
         /// <summary>
         /// 死亡結局_古神化身
         /// </summary>

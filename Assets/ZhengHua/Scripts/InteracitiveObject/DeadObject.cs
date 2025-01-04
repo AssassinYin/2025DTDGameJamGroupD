@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using ZhXun;
 
 namespace ZhengHua
 {
     /// <summary>
     /// 死亡物件
     /// </summary>
-    public abstract class DeadObject : InteracitiveObject
+    public class DeadObject : InteracitiveObject
     {
         /// <summary>
         /// 對應的死亡結局編號
@@ -16,6 +17,7 @@ namespace ZhengHua
         {
             /// 傳出玩家死亡的訊息，並且給予對應的死亡結局
             Debug.Log("玩家死亡，結局編號: " + endingEnum);
+            GameOverManager.Instance.GameOver();
         }
     }
 }
