@@ -10,11 +10,9 @@ namespace ZhXun
 
         public override void Execute()
         {
-            //玩家閃現到
+            //玩家閃現+flashPos
             MoveController player = Transform.FindFirstObjectByType<MoveController>();
-            
-
-            /*玩家移動 閃現*/
+            player.Teleport(flashPos);
         }
     }
 }

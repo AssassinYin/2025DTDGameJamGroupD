@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: JumpOneHigh
   m_EditorClassIdentifier: 
   high: 1
+  step: 2

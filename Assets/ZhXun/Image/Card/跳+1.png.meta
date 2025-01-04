@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: 966ff550585ec504896a28b55fd7281c
-AssetOrigin:
-  serializedVersion: 1
-  productId: 158343
-  packageName: Pixel Art Icon Pack - RPG
-  packageVersion: 1.0
-  assetPath: Assets/Cainos/Pixel Art Icon Pack - RPG/Texture/Food/Mushroom.png
-  uploadId: 435286
+guid: a0e7afc6e931e5a4d94ca271a5a0199c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2395719913089712266
+    second: "\u8DF3+1_0"
+  - first:
+      213: 568818024782035930
+    second: "\u8DF3+1_1"
+  - first:
+      213: 2498452339389129198
+    second: "\u8DF3+1_2"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -41,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,9 +72,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -86,28 +88,94 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "\u8DF3+1_0"
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 112
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80ca01619e4f3120800000000000000
+      internalID: 2395719913089712266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u8DF3+1_1"
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 541
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adbf8f4daf8d4e700800000000000000
+      internalID: 568818024782035930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u8DF3+1_2"
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 160
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee168815a294ca220800000000000000
+      internalID: 2498452339389129198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fe90708072208c944bf5a25ef6e83a60
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -116,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\u8DF3+1_0": 2395719913089712266
+      "\u8DF3+1_1": 568818024782035930
+      "\u8DF3+1_2": 2498452339389129198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
