@@ -52,7 +52,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5017741106911397897, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011757054232296511, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9011757054232296511, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
