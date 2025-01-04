@@ -18,6 +18,8 @@ namespace ZhengHua
         private Vector3 targetRotation;
         private UnityEvent onTurnAroundEnd;
 
+        private Vector3 startPosition;
+
         /// <summary>
         /// 玩家動畫控制器
         /// </summary>
@@ -163,7 +165,8 @@ namespace ZhengHua
             stopTimer = 0f;
             onTurnAroundEnd.AddListener(AddMoveForce);
             targetX = Mathf.RoundToInt((this.transform.position + (this.transform.right * movementPoints)).x);
-            if(movementPoints < 0)
+            startPosition = this.transform.position;
+            if (movementPoints < 0)
             {
                 TurnAround();
             }
@@ -225,6 +228,7 @@ namespace ZhengHua
                 return;
             stopTimer = 0f;
             hightPoints = heightPoints;
+            startPosition = this.transform.position;
             animator.SetFloat("Jump", 1);
             onTurnAroundEnd.AddListener(AddJumpForce);
             Move(movementPoint);
@@ -280,6 +284,7 @@ namespace ZhengHua
         {
             onTurnAroundEnd.AddListener(TeleportExcute);
             teleportTarget = this.transform.position + new Vector3(position.x, position.y, 0);
+            startPosition = this.transform.position;
             if (position.x < 0)
             {
                 TurnAround();
@@ -297,6 +302,15 @@ namespace ZhengHua
             onTurnAroundEnd.RemoveListener(TeleportExcute);
             this.transform.position = teleportTarget;
             onMoveEnd?.Invoke();
+        }
+
+        /// <summary>
+        /// 回歸初始位置
+        /// </summary>
+        public void BackToStartPoint()
+        {
+            if (startPosition != null)
+                this.transform.position = startPosition;
         }
     }
 }
