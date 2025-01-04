@@ -30,14 +30,15 @@ namespace ZhXun
 
         int currentSelectedCard = 0;
 
-        void Awake()
-        {
-           
-        }
-
         void Start()
         {
+            GameOverManager.Instance.OnGameOver.AddListener(DestroyThisScript);
             Shuffle();
+        }
+
+        void DestroyThisScript()
+        {
+            Destroy(this);
         }
 
         void Update()
