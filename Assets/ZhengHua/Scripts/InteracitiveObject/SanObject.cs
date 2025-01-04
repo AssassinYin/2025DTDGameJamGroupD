@@ -5,7 +5,7 @@ namespace ZhengHua
     /// <summary>
     /// San值扣除物件
     /// </summary>
-    public abstract class SanObject : InteracitiveObject
+    public class SanObject : InteracitiveObject
     {
         /// <summary>
         /// 碰觸後須扣除的San值

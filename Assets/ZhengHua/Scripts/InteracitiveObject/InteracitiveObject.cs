@@ -7,6 +7,11 @@ namespace ZhengHua
     /// </summary>
     public abstract class InteracitiveObject : MonoBehaviour
     {
+        /// <summary>
+        /// 是否碰觸時就會觸發
+        /// </summary>
+        public bool isTouchExecute = true;
+
         public abstract void Execute();
     }
 }
