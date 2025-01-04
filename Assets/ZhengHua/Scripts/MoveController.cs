@@ -16,7 +16,16 @@ namespace ZhengHua
         private bool isMoving = false;
         private bool isTurnAround = false;
         private Vector3 targetRotation;
-        private UnityEvent turnAroundEnd;
+        private UnityEvent onTurnAroundEnd;
+
+        /// <summary>
+        /// 玩家動畫控制器
+        /// </summary>
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private Transform characterTransform;
 
         private float stopTimer = 0f;
 
@@ -41,7 +50,36 @@ namespace ZhengHua
                     Debug.LogWarning("請先加入Rigidbody2D元件");
                 }
             }
-            turnAroundEnd = new UnityEvent();
+            onTurnAroundEnd = new UnityEvent();
+            onTurnAroundEnd.AddListener(SetCharacterRotation);
+            onMoveEnd.AddListener(ResetAnimation);
+
+            ResetAnimation();
+        }
+
+        private void SetCharacterRotation()
+        {
+            if (characterTransform == null)
+                return;
+
+            characterTransform.rotation = Quaternion.Euler(0, 0, 0);
+            animator.SetFloat("Move", transform.right.x);
+        }
+
+        private void ResetAnimation()
+        {
+            if (animator == null)
+                return;
+
+            animator.SetFloat("Move", transform.right.x);
+            animator.SetFloat("Jump", 0);
+            characterTransform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        private void OnDestroy()
+        {
+            onTurnAroundEnd.RemoveListener(SetCharacterRotation);
+            onMoveEnd.RemoveListener(ResetAnimation);
         }
 
         // Update is called once per frame
@@ -56,7 +94,7 @@ namespace ZhengHua
                     this.transform.rotation = Quaternion.Euler(0, targetRotation.y, 0);
                     isTurnAround = false;
                     // 轉身完後進行移動
-                    turnAroundEnd?.Invoke();
+                    onTurnAroundEnd?.Invoke();
                 }
             }
 
@@ -96,7 +134,7 @@ namespace ZhengHua
                     stopTimer = 0f;
                 }
 
-                if(stopTimer > 1f)
+                if(stopTimer > 0.3f)
                 {
                     ForceStop();
                 }
@@ -123,15 +161,15 @@ namespace ZhengHua
                 return;
             }
             stopTimer = 0f;
-            turnAroundEnd.AddListener(AddMoveForce);
-            targetX = (this.transform.position + (this.transform.right * movementPoints)).x;
+            onTurnAroundEnd.AddListener(AddMoveForce);
+            targetX = Mathf.RoundToInt((this.transform.position + (this.transform.right * movementPoints)).x);
             if(movementPoints < 0)
             {
                 TurnAround();
             }
             else
             {
-                turnAroundEnd?.Invoke();
+                onTurnAroundEnd?.Invoke();
             }
             isMoving = true;
         }
@@ -142,7 +180,7 @@ namespace ZhengHua
         private void AddMoveForce()
         {
             rb.AddForce(this.transform.right * unitForce);
-            turnAroundEnd.RemoveListener(AddMoveForce);
+            onTurnAroundEnd.RemoveListener(AddMoveForce);
         }
 
         private int hightPoints;
@@ -152,7 +190,7 @@ namespace ZhengHua
         private void AddJumpForce()
         {
             rb.AddForce(this.transform.up * GetJumpForce(hightPoints));
-            turnAroundEnd.RemoveListener(AddJumpForce);
+            onTurnAroundEnd.RemoveListener(AddJumpForce);
         }
 
         /// <summary>
@@ -187,7 +225,8 @@ namespace ZhengHua
                 return;
             stopTimer = 0f;
             hightPoints = heightPoints;
-            turnAroundEnd.AddListener(AddJumpForce);
+            animator.SetFloat("Jump", 1);
+            onTurnAroundEnd.AddListener(AddJumpForce);
             Move(movementPoint);
         }
 
@@ -211,7 +250,7 @@ namespace ZhengHua
         {
             isMoving = false;
             stopTimer = 0f;
-            this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y), Mathf.RoundToInt(this.transform.position.z));
+            this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), this.transform.position.y, this.transform.position.z);
             onMoveEnd?.Invoke();
         }
 
@@ -239,7 +278,7 @@ namespace ZhengHua
         /// <param name="position">預計要移動的位置(相對座標)</param>
         public void Teleport(Vector2 position)
         {
-            turnAroundEnd.AddListener(TeleportExcute);
+            onTurnAroundEnd.AddListener(TeleportExcute);
             teleportTarget = this.transform.position + new Vector3(position.x, position.y, 0);
             if (position.x < 0)
             {
@@ -247,7 +286,7 @@ namespace ZhengHua
             }
             else
             {
-                turnAroundEnd?.Invoke();
+                onTurnAroundEnd?.Invoke();
             }
         }
 
@@ -255,8 +294,9 @@ namespace ZhengHua
 
         private void TeleportExcute()
         {
-            turnAroundEnd.RemoveListener(TeleportExcute);
+            onTurnAroundEnd.RemoveListener(TeleportExcute);
             this.transform.position = teleportTarget;
+            onMoveEnd?.Invoke();
         }
     }
 }
