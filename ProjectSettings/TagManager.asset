@@ -38,8 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1497986321
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0n
+    locked: 0
+  - name: Bricks
+    uniqueID: 1125026441
+    locked: 0
   m_RenderingLayers:
   - Default
