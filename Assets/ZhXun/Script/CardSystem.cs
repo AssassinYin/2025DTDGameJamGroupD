@@ -31,11 +31,12 @@ namespace ZhXun
 
         int currentSelectedCard = 0;
 
+        bool canCtol = true;
+
         void Start()
         {
             PlayerManager.Instance.OnRoundEnd.AddListener(RoundEnd);
             GameOverManager.Instance.OnGameOver.AddListener(DestroyThisScript);
-            Shuffle();
         }
 
         void DestroyThisScript()
@@ -45,23 +46,26 @@ namespace ZhXun
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if(canCtol)
             {
-                SelectCard(currentSelectedCard - 1) ;
-            }
-            if (Input.GetKeyDown(KeyCode.D)) 
-            {
-                SelectCard(currentSelectedCard + 1);
-            }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    SelectCard(currentSelectedCard - 1);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    SelectCard(currentSelectedCard + 1);
+                }
 
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                PlayCard();
-            }
-            if(Input.GetKeyDown(KeyCode.R))
-            {
-                TurnCard();
-            }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    PlayCard();
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    TurnCard();
+                }
+            }     
         }
 
 
@@ -122,7 +126,9 @@ namespace ZhXun
         //出牌
         void PlayCard()
         {
-            if(currentSelectedCard == -1)
+            canCtol = false;
+
+            if (currentSelectedCard == -1)
             {
                 return;
             }
@@ -143,7 +149,18 @@ namespace ZhXun
 
         void RoundEnd()
         {
+            canCtol = true;
             Shuffle();
+        }
+
+        public void RoundEnd(float delay)
+        {
+            Invoke("CallOnRoundEnd" , delay);
+        }
+
+        void CallOnRoundEnd()
+        {
+            PlayerManager.Instance.OnRoundEnd.Invoke();
         }
 
         //翻牌

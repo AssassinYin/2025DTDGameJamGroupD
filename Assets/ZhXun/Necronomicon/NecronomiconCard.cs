@@ -8,9 +8,13 @@ namespace ZhXun
     {
         GameObject[] enemies;
         Transform playerTf;
+        [SerializeField] float roundEndDelay = 3;
 
         public override void Execute()
         {
+            CardSystem cardSystem = Transform.FindFirstObjectByType<CardSystem>();
+            cardSystem.RoundEnd(roundEndDelay);
+
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
             if (enemies.Length == 0)
             {
@@ -25,7 +29,7 @@ namespace ZhXun
             Vector3 temp = playerTf.position;
 
             playerTf.position = nearestEnemy.position;
-            nearestEnemy.position = temp;
+            nearestEnemy.position = temp;  
         }
 
         GameObject FindClosestEnemy()

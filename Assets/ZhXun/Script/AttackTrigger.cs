@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZhengHua;
 
 namespace ZhXun
 {
@@ -21,6 +22,7 @@ namespace ZhXun
 
         void DestroySelf()
         {
+            PlayerManager.Instance.OnRoundEnd?.Invoke();
             Destroy(gameObject);
         }
     }

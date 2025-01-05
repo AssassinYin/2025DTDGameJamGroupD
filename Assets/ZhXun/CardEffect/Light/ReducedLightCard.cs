@@ -7,6 +7,7 @@ namespace ZhXun
     public class ReducedLightCard : CardEffect
     {
         [SerializeField] int invincibleTurn;
+        [SerializeField] float roundEndDelay = 3;
 
         public override void Execute()
         {
@@ -14,6 +15,9 @@ namespace ZhXun
 
             playerLight.SetReducedLight();
             PlayerManager.Instance.EnterInvincible(invincibleTurn);
+
+            CardSystem cardSystem = Transform.FindFirstObjectByType<CardSystem>();
+            cardSystem.RoundEnd(roundEndDelay);
         }
     }
 }

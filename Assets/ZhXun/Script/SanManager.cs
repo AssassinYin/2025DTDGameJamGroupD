@@ -30,7 +30,13 @@ namespace ZhXun
 
         public void ChangeSan(float amount)
         {
+            
             sanValue += amount;
+            if (sanValue > 100)
+            {
+                sanValue = 100;
+            }
+
             onSanValueChanged.Invoke(sanValue);
             UpdateSanUI();
 

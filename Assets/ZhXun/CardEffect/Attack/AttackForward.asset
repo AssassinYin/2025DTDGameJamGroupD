@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AttackForward
   m_EditorClassIdentifier: 
   attackPoint: 1
+  roundEndDelay: 2.5
