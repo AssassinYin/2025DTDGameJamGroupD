@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: c7b857bd168a5294ebb81fd7c405c358
   - enabled: 1
+    path: Assets/YEET/Scene/Prologue.unity
+    guid: 5515813e831057d49b348dc733d398b9
+  - enabled: 1
     path: Assets/Scenes/FinalScene.unity
     guid: adfa732164c203b4b9c802aecaeb88aa
   m_configObjects:
