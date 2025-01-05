@@ -8,6 +8,7 @@ namespace ZhXun
     {
         [SerializeField] int invincibleTurn;
         [SerializeField] float roundEndDelay = 3;
+        [SerializeField] GameObject protectiveEffec;
 
         public override void Execute()
         {
@@ -15,6 +16,10 @@ namespace ZhXun
             playerLight.SetReducedLight();
 
             PlayerManager.Instance.EnterInvincible(invincibleTurn);
+
+
+            Transform playerTf = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            Instantiate(protectiveEffec, playerTf);
 
             CardSystem cardSystem = Transform.FindFirstObjectByType<CardSystem>();
             cardSystem.RoundEnd(roundEndDelay);

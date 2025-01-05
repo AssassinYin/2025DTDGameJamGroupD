@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invincibleTurn: 2
   roundEndDelay: 2
+  protectiveEffec: {fileID: 4433842041619180585, guid: f3f5e9a3122c11249892078bd99efe61, type: 3}
