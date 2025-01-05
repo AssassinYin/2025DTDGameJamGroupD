@@ -372,7 +372,7 @@ namespace ZhengHua
         public void CreateAttackObject(int length = 1)
         {
             onTurnAroundEnd.AddListener(AttackExecute);
-            attackLength = length;
+            attackLength = Mathf.Abs(length);
             if (length < 0)
             {
                 TurnAround();
@@ -392,7 +392,7 @@ namespace ZhengHua
             onTurnAroundEnd.RemoveListener(AttackExecute);
             if(attackObject != null)
             {
-                Instantiate(attackObject, this.transform.position + new Vector3(attackLength, 0, 0), Quaternion.identity);
+                Instantiate(attackObject, this.transform.position + new Vector3(attackLength * transform.right.x, 0, 0), Quaternion.identity);
             }
         }
     }
