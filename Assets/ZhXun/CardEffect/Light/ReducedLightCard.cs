@@ -12,8 +12,8 @@ namespace ZhXun
         public override void Execute()
         {
             PlayerLight playerLight = Transform.FindFirstObjectByType<PlayerLight>();
-
             playerLight.SetReducedLight();
+
             PlayerManager.Instance.EnterInvincible(invincibleTurn);
 
             CardSystem cardSystem = Transform.FindFirstObjectByType<CardSystem>();

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ReducedLightCard
   m_EditorClassIdentifier: 
   invincibleTurn: 2
-  roundEndDelay: 2.5
+  roundEndDelay: 2

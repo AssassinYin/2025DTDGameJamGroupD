@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f618d6048bae14c94a821abdac0133, type: 3}
   m_Name: NormalLightCard
   m_EditorClassIdentifier: 
-  roundEndDelay: 2.5
+  roundEndDelay: 2
