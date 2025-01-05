@@ -29,5 +29,9 @@ namespace ZhengHua
         /// 死亡結局_敵人殺死
         /// </summary>
         DeadEnemy,
+        /// <summary>
+        /// 死亡結局_摔死
+        /// </summary>
+        DeadFail,
     }
 }

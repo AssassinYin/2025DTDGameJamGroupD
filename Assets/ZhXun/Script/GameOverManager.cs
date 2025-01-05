@@ -20,10 +20,9 @@ namespace ZhXun
             Instance = this;
         }
 
-        public void GameOver(EndingEnum ending = EndingEnum.None)
+        public void GameOver()
         {
             Debug.Log("遊戲結束！");
-            PlayerManager.Instance.ending = ending;
             OnGameOver.Invoke();
         }
     }

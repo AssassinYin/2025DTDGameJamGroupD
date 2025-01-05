@@ -24,6 +24,7 @@ namespace ZhengHua
                 Transform.FindFirstObjectByType<MoveController>().BackToStartPoint();
                 return;
             }
+            PlayerManager.Instance.ending = endingEnum;
             GameOverManager.Instance.GameOver();
         }
     }
