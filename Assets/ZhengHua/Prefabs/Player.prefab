@@ -85,6 +85,7 @@ MonoBehaviour:
   rotationSpeed: 10
   maxMoveSpeed: 2
   unitForce: 100
+  attackObject: {fileID: 8217858413663005613, guid: 064ede8c07604c545bcf26973ac23d7b, type: 3}
 --- !u!70 &883554390790665793
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

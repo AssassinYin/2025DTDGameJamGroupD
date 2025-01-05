@@ -56,6 +56,7 @@ namespace ZhengHua
             onTurnAroundEnd.AddListener(SetCharacterRotation);
             onMoveEnd.AddListener(ResetAnimation);
 
+
             ResetAnimation();
         }
 
@@ -76,12 +77,20 @@ namespace ZhengHua
             animator.SetFloat("Move", transform.right.x);
             animator.SetFloat("Jump", 0);
             characterTransform.rotation = Quaternion.Euler(0, 0, 0);
+            StartCoroutine(CallRoundEnd());
         }
 
         private void OnDestroy()
         {
             onTurnAroundEnd.RemoveListener(SetCharacterRotation);
             onMoveEnd.RemoveListener(ResetAnimation);
+            StopCoroutine(CallRoundEnd());
+        }
+
+        private IEnumerator CallRoundEnd()
+        {
+            yield return new WaitForSeconds(0.5f);
+            PlayerManager.Instance.OnRoundEnd?.Invoke();
         }
 
         // Update is called once per frame
@@ -311,6 +320,37 @@ namespace ZhengHua
         {
             if (startPosition != null)
                 this.transform.position = startPosition;
+        }
+
+        /// <summary>
+        /// 呼叫攻擊物件
+        /// </summary>
+        /// <param name="length">攻擊距離</param>
+        public void CreateAttackObject(int length = 1)
+        {
+            onTurnAroundEnd.AddListener(AttackExecute);
+            attackLength = length;
+            if (length < 0)
+            {
+                TurnAround();
+            }
+            else
+            {
+                onTurnAroundEnd?.Invoke();
+            }
+        }
+
+        private int attackLength = 0;
+
+        [SerializeField]
+        private GameObject attackObject;
+        private void AttackExecute()
+        {
+            onTurnAroundEnd.RemoveListener(AttackExecute);
+            if(attackObject != null)
+            {
+                Instantiate(attackObject, this.transform.position + new Vector3(attackLength, 0, 0), Quaternion.identity);
+            }
         }
     }
 }
