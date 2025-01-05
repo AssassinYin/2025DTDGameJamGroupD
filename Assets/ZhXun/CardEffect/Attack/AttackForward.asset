@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be52702d4cf308944acf524650f40a87, type: 3}
-  m_Name: ReducedLightCard
+  m_Script: {fileID: 11500000, guid: dad25c290d6c5514c9b6938e3ee7cc1b, type: 3}
+  m_Name: AttackForward
   m_EditorClassIdentifier: 
-  invincibleTurn: 2
+  attackPoint: 1
