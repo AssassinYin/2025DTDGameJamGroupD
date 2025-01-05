@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
+using YEET;
 
 namespace ZhengHua
 {
     /// <summary>
     /// 可蒐集的物件
     /// </summary>
-    public class CollectionObject : InteracitiveObject
+    public class RotationObject : InteracitiveObject
     {
         /// <summary>
         /// 對應的物件編號
         /// </summary>
         [SerializeField]
-        private CollectionEnum collectionEnum = CollectionEnum.None;
+        private RotateScene rotateScene;
+
+        private void Start()
+        {
+            rotateScene = FindFirstObjectByType<RotateScene>();
+        }
+
         public override void Execute()
         {
-            Debug.Log("玩家成功拾取特定物件: " + collectionEnum);
-            PlayerManager.Instance.AddCollection(collectionEnum);
+            rotateScene?.Rotate(90);
             Destroy(gameObject);
         }
     }

@@ -61,6 +61,7 @@ namespace ZhengHua
             onTurnAroundEnd.AddListener(SetCharacterRotation);
             onMoveEnd.AddListener(ResetAnimation);
 
+            PlayerManager.Instance.Reset();
 
             ResetAnimation();
         }
@@ -363,6 +364,8 @@ namespace ZhengHua
         {
             if (startPosition != null)
                 this.transform.position = startPosition;
+            isMoving = false;
+            onMoveEnd?.Invoke();
         }
 
         /// <summary>

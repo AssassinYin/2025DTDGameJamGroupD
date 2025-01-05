@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace ZhengHua
 {
@@ -6,6 +7,7 @@ namespace ZhengHua
     {
         private static PlayerManager instance;
         private static readonly object _lock = new object();
+        public EndingEnum ending = EndingEnum.None;
 
         public static PlayerManager Instance
         {
@@ -28,8 +30,13 @@ namespace ZhengHua
         private PlayerManager()
         {
             OnRoundEnd = new UnityEvent();
-            invincibleTurns = 0;
             OnRoundEnd.AddListener(RoundEnd);
+        }
+
+        public void Reset()
+        {
+            collectionDict = new Dictionary<CollectionEnum, int>();
+            invincibleTurns = 0;
         }
 
         private void RoundEnd()
@@ -39,6 +46,8 @@ namespace ZhengHua
                 invincibleTurns--;
             }
         }
+
+        private Dictionary<CollectionEnum, int> collectionDict = new Dictionary<CollectionEnum, int>();
 
         /// <summary>
         /// 是否為無敵狀態
@@ -52,6 +61,35 @@ namespace ZhengHua
         public void EnterInvincible(int turns = 2)
         {
             invincibleTurns = turns;
+        }
+
+        /// <summary>
+        /// 成功拾取收集品
+        /// </summary>
+        /// <param name="collectionEnum"></param>
+        public void AddCollection(CollectionEnum collectionEnum)
+        {
+            if(collectionDict == null)
+            {
+                collectionDict = new Dictionary<CollectionEnum, int>();
+            }
+            if (collectionDict.ContainsKey(collectionEnum))
+            {
+                collectionDict[collectionEnum]++;
+            }
+            else
+            {
+                collectionDict.Add(collectionEnum, 1);
+            }
+        }
+
+        public int GetCollectionCount(CollectionEnum collectionEnum)
+        {
+            if (collectionDict.ContainsKey(collectionEnum))
+            {
+                return collectionDict[collectionEnum];
+            }
+            return 0;
         }
     }
 }
