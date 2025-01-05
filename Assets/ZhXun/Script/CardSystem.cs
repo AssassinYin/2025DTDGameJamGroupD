@@ -139,18 +139,6 @@ namespace ZhXun
             }
 
             cardUI.PlayCardAnimationF(currentSelectedCard);
-
-            StartCoroutine(PlayCardDelay());
-        }
-
-        /*暫時*/
-        IEnumerator PlayCardDelay()
-        {
-            //等待回合結束
-            //接收回合結束事件
-            
-            yield return new WaitForSeconds(1.5f);
-            RoundEnd();
         }
 
         void RoundEnd()

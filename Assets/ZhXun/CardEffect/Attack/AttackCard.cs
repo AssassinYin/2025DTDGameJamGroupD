@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ZhengHua;
 
 namespace ZhXun
 {
@@ -9,7 +10,9 @@ namespace ZhXun
 
         public override void Execute()
         {
-            //玩家攻擊attackPoint方向
+            MoveController player = Transform.FindFirstObjectByType<MoveController>();
+            player.CreateAttackObject(attackPoint);
+            //PlayerManager.Instance.OnRoundEnd?.Invoke();
         }
     }
 }
