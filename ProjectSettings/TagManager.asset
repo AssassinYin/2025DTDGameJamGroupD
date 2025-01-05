@@ -48,5 +48,8 @@ TagManager:
   - name: Bricks
     uniqueID: 1125026441
     locked: 0
+  - name: Effect
+    uniqueID: 246810577
+    locked: 0
   m_RenderingLayers:
   - Default

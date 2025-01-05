@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 
 namespace ZhXun
@@ -12,6 +12,12 @@ namespace ZhXun
         public override void Execute()
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemies.Length == 0)
+            {
+                Debug.Log("沒有找到任何敵人");
+                return;
+            }
+
             playerTf = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
             Transform nearestEnemy = FindClosestEnemy().GetComponent<Transform>();
