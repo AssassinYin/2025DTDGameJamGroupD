@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SanRecoverCard
   m_EditorClassIdentifier: 
   sanValue: 10
-  roundEndDelay: 2.5
+  roundEndDelay: 1.5

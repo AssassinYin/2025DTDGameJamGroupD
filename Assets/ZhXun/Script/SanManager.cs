@@ -12,8 +12,10 @@ namespace ZhXun
 
         [SerializeField] Slider sanSlider;
         [SerializeField] Image sanImage;
+        [SerializeField] Image sanSliderImage;
 
         [SerializeField] Sprite[] sanSprite;
+        [SerializeField] Sprite[] sanSliderSprite;
 
         public UnityEvent<float> onSanValueChanged;
 
@@ -56,6 +58,7 @@ namespace ZhXun
             if (imageIndex >= 0 && imageIndex < 4)
             {
                 sanImage.sprite = sanSprite[imageIndex];
+                sanSliderImage.sprite = sanSliderSprite[imageIndex];
             }
         }
     }
