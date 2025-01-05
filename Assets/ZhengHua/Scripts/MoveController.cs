@@ -2,6 +2,8 @@
 using UnityEngine.Events;
 using System.Collections;
 using System.Data;
+using UnityEngine.Tilemaps;
+using ZhXun;
 
 namespace ZhengHua
 {
@@ -31,6 +33,9 @@ namespace ZhengHua
 
         private float stopTimer = 0f;
 
+        private float fallTimer = 0f;
+        private bool isOver = false;
+
         /// <summary>
         /// 轉身速度
         /// </summary>
@@ -56,6 +61,7 @@ namespace ZhengHua
             onTurnAroundEnd.AddListener(SetCharacterRotation);
             onMoveEnd.AddListener(ResetAnimation);
 
+
             ResetAnimation();
         }
 
@@ -76,12 +82,20 @@ namespace ZhengHua
             animator.SetFloat("Move", transform.right.x);
             animator.SetFloat("Jump", 0);
             characterTransform.rotation = Quaternion.Euler(0, 0, 0);
+            StartCoroutine(CallRoundEnd());
         }
 
         private void OnDestroy()
         {
             onTurnAroundEnd.RemoveListener(SetCharacterRotation);
             onMoveEnd.RemoveListener(ResetAnimation);
+            StopCoroutine(CallRoundEnd());
+        }
+
+        private IEnumerator CallRoundEnd()
+        {
+            yield return new WaitForSeconds(0.5f);
+            PlayerManager.Instance.OnRoundEnd?.Invoke();
         }
 
         // Update is called once per frame
@@ -102,13 +116,29 @@ namespace ZhengHua
 
             if (isMoving && !isTurnAround)
             {
-                if(Mathf.Abs(targetX - this.transform.position.x) < 0.05f)
+                if (Mathf.Abs(targetX - this.transform.position.x) < 0.05f)
                 {
                     this.isMoving = false;
                     rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                     this.transform.position = new Vector3(targetX, this.transform.position.y, this.transform.position.z);
                     onMoveEnd?.Invoke();
                 }
+            }
+
+            /// 檢查是否超出地圖持續掉落
+            if (!isMoving && rb.linearVelocity.magnitude > 1F)
+            {
+                fallTimer += Time.deltaTime;
+            }
+            else
+            {
+                fallTimer = 0f;
+            }
+            // 掉落時間超過三秒直接判定死亡
+            if(!isOver && fallTimer > 3f)
+            {
+                isOver = true;
+                GameOverManager.Instance.GameOver();
             }
         }
 
@@ -283,7 +313,7 @@ namespace ZhengHua
         public void Teleport(Vector2 position)
         {
             onTurnAroundEnd.AddListener(TeleportExcute);
-            teleportTarget = this.transform.position + new Vector3(position.x, position.y, 0);
+            teleportTarget = this.transform.position + new Vector3(position.x * this.transform.right.x, position.y, 0);
             startPosition = this.transform.position;
             if (position.x < 0)
             {
@@ -296,12 +326,34 @@ namespace ZhengHua
         }
 
         private Vector3 teleportTarget;
+        [SerializeField]
+        private Tilemap bricks;
+
 
         private void TeleportExcute()
         {
             onTurnAroundEnd.RemoveListener(TeleportExcute);
             this.transform.position = teleportTarget;
             onMoveEnd?.Invoke();
+            if (bricks != null)
+            {
+                bool hasBrick = bricks.ContainsTile(bricks.GetTile(bricks.WorldToCell(this.transform.position)));
+                // 檢查玩家傳送後是否卡牆
+                if (hasBrick)
+                {
+                    /// 檢查玩家是否無敵
+                    if (PlayerManager.Instance.IsInvinciable)
+                    {
+                        /// 無敵狀態下，撞到牆壁不會死亡，會回到原點
+                        BackToStartPoint();
+                    }
+                    else
+                    {
+                        isOver = true;
+                        GameOverManager.Instance.GameOver();
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -311,6 +363,37 @@ namespace ZhengHua
         {
             if (startPosition != null)
                 this.transform.position = startPosition;
+        }
+
+        /// <summary>
+        /// 呼叫攻擊物件
+        /// </summary>
+        /// <param name="length">攻擊距離</param>
+        public void CreateAttackObject(int length = 1)
+        {
+            onTurnAroundEnd.AddListener(AttackExecute);
+            attackLength = Mathf.Abs(length);
+            if (length < 0)
+            {
+                TurnAround();
+            }
+            else
+            {
+                onTurnAroundEnd?.Invoke();
+            }
+        }
+
+        private int attackLength = 0;
+
+        [SerializeField]
+        private GameObject attackObject;
+        private void AttackExecute()
+        {
+            onTurnAroundEnd.RemoveListener(AttackExecute);
+            if(attackObject != null)
+            {
+                Instantiate(attackObject, this.transform.position + new Vector3(attackLength * transform.right.x, 0, 0), Quaternion.identity);
+            }
         }
     }
 }

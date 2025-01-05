@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7be2d71ed6222e4f829ab7c43625da5, type: 3}
   m_Name: ConvertGravityCard
   m_EditorClassIdentifier: 
+  roundEndDelay: 2.5

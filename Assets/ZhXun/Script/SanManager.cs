@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace ZhXun
 {
@@ -14,6 +15,8 @@ namespace ZhXun
 
         [SerializeField] Sprite[] sanSprite;
 
+        public UnityEvent<float> onSanValueChanged;
+
         void Awake()
         {
             UpdateSanUI();
@@ -27,7 +30,14 @@ namespace ZhXun
 
         public void ChangeSan(float amount)
         {
+            
             sanValue += amount;
+            if (sanValue > 100)
+            {
+                sanValue = 100;
+            }
+
+            onSanValueChanged.Invoke(sanValue);
             UpdateSanUI();
 
             if (sanValue <= 0)

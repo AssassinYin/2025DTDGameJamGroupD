@@ -9,7 +9,7 @@ namespace Taco
     public enum SoundType
     {
         // Put sound names in here
-        Walk, Jump, Sit, Bat, Blink, Mouse, Pray, Crack, Howling, Click, Death
+        Walk, Jump, Sit, Bat, Blink, Mouse, Pray, Crack, Howling, Click, Death, MenuBackground, GameBackground
     }
 
     [Serializable]
