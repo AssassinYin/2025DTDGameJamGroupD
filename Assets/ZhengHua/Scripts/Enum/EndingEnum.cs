@@ -25,5 +25,9 @@ namespace ZhengHua
         /// 取得舊神之力的真結局
         /// </summary>
         TureSucceed,
+        /// <summary>
+        /// 死亡結局_敵人殺死
+        /// </summary>
+        DeadEnemy,
     }
 }

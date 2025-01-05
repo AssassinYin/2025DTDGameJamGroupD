@@ -1,31 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 namespace YEET
 {
     public class RotateScene: MonoBehaviour
     {
-        [SerializeField] Camera mainCamera; // ¥DÄá¼v¾÷
-        [SerializeField] float rotationSpeed = 90; // ±ÛÂà³t«×¡]«×/¬í¡^
-        bool isRotating = false; // ¨¾¤î¦P®É°õ¦æ¦h­Ó±ÛÂà
-        Vector2 defaultGravity; // Àq»{­«¤O¤è¦V
-        Quaternion targetRotation; // ¥Ø¼Ğ±ÛÂà¨¤«×
-
+        [SerializeField] Camera mainCamera; // ä¸»æ”å½±æ©Ÿ
+        [SerializeField] float rotationSpeed = 90; // æ—‹è½‰é€Ÿåº¦ï¼ˆåº¦/ç§’ï¼‰
+        bool isRotating = false; // é˜²æ­¢åŒæ™‚åŸ·è¡Œå¤šå€‹æ—‹è½‰
+        Vector2 defaultGravity; // é»˜èªé‡åŠ›æ–¹å‘
+        Quaternion targetRotation; // ç›®æ¨™æ—‹è½‰è§’åº¦
+        [SerializeField]
+        private Transform rotateTransform;
         void Start()
         {
             if (mainCamera == null)
             {
-                mainCamera = Camera.main; // ¦Û°ÊÀò¨ú¥DÄá¼v¾÷
+                mainCamera = Camera.main; // è‡ªå‹•ç²å–ä¸»æ”å½±æ©Ÿ
             }
 
-            // °O¿ıÀq»{­«¤O
+            // è¨˜éŒ„é»˜èªé‡åŠ›
             defaultGravity = Physics2D.gravity;
 
-            // ªì©l¤Æ¥Ø¼Ğ±ÛÂà
+            // åˆå§‹åŒ–ç›®æ¨™æ—‹è½‰
             targetRotation = mainCamera.transform.rotation;
         }
 
-        //¥i¥H¦Û­q±ÛÂà¨¤«×¡A¦ı¹w³]¬°Âà¥b°é
+        //å¯ä»¥è‡ªè¨‚æ—‹è½‰è§’åº¦ï¼Œä½†é è¨­ç‚ºè½‰åŠåœˆ
         public void Rotate(int angle = -180)
         {
             if (!isRotating)
@@ -38,13 +39,13 @@ namespace YEET
         {
             isRotating = true;
 
-            // ­pºâ³Ì²×¥Ø¼Ğ¨¤«×
+            // è¨ˆç®—æœ€çµ‚ç›®æ¨™è§’åº¦
             targetRotation *= Quaternion.Euler(0, 0, angle);
 
-            // ­pºâ·sªº­«¤O¤è¦V
+            // è¨ˆç®—æ–°çš„é‡åŠ›æ–¹å‘
             Vector2 newGravity = Quaternion.Euler(0, 0, angle) * defaultGravity;
 
-            // ¥­·Æ±ÛÂà
+            // å¹³æ»‘æ—‹è½‰
             while (Quaternion.Angle(mainCamera.transform.rotation, targetRotation) > 0.1f)
             {
                 mainCamera.transform.rotation = Quaternion.RotateTowards(
@@ -52,16 +53,21 @@ namespace YEET
                     targetRotation,
                     rotationSpeed * Time.deltaTime
                 );
+                rotateTransform.rotation = Quaternion.RotateTowards(
+                    rotateTransform.rotation,
+                    targetRotation,
+                    rotationSpeed * Time.deltaTime
+                );
                 yield return null;
             }
 
-            // ½T«O±ÛÂà§¹¥şºë½T
+            // ç¢ºä¿æ—‹è½‰å®Œå…¨ç²¾ç¢º
             mainCamera.transform.rotation = targetRotation;
 
-            // §ó·sª«²z­«¤O¤è¦V
+            // æ›´æ–°ç‰©ç†é‡åŠ›æ–¹å‘
             Physics2D.gravity = newGravity;
 
-            // §ó·sÀq»{­«¤O
+            // æ›´æ–°é»˜èªé‡åŠ›
             defaultGravity = Physics2D.gravity;
 
             isRotating = false;

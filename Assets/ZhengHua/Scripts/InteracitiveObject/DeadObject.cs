@@ -17,6 +17,13 @@ namespace ZhengHua
         {
             /// 傳出玩家死亡的訊息，並且給予對應的死亡結局
             Debug.Log("玩家死亡，結局編號: " + endingEnum);
+            /// 玩家無敵狀態，不進入死亡
+            if (PlayerManager.Instance.IsInvinciable)
+            {
+                /// 無敵狀態撞到怪物，回到初始位置
+                Transform.FindFirstObjectByType<MoveController>().BackToStartPoint();
+                return;
+            }
             GameOverManager.Instance.GameOver();
         }
     }

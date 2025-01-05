@@ -53,16 +53,46 @@ MonoBehaviour:
     <backDescription>k__BackingField: "\u5411\u5F8C\u8DF3\u8E8D 2 \u683C\u9AD8\uFF0C4
       \u683C\u9060"
   - <Name>k__BackingField: "\u524D\u5F8C\u77AC\u79FB2\u683C"
-    <frontSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: faea0c5c6fe8c4047be025d482f560cd, type: 3}
     <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 6e5e6fdd0e0939d42bc9ee97e78f08f2, type: 2}
     <frontDescription>k__BackingField: "\u5411\u524D\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
-    <backSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <backSprite>k__BackingField: {fileID: 21300000, guid: 94a1ea49af0c98042976da772bda5570, type: 3}
     <backCardEffect>k__BackingField: {fileID: 11400000, guid: edf41c428e7273942bd7d7b7b867ef14, type: 2}
     <backDescription>k__BackingField: "\u5411\u5F8C\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
   - <Name>k__BackingField: "\u4E0A\u4E0B\u77AC\u79FB2\u683C"
-    <frontSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: d3f58659f218cbf409d98e92137f22f6, type: 3}
     <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 60470b0861509c345a2c65621dcb1a53, type: 2}
     <frontDescription>k__BackingField: "\u5411\u4E0A\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
-    <backSprite>k__BackingField: {fileID: 7482667652216324306, guid: 688afdca013aa504b9742fbb29d61f55, type: 3}
+    <backSprite>k__BackingField: {fileID: 21300000, guid: ba0ae0122c56edd4a8360a23f2f82cb4, type: 3}
     <backCardEffect>k__BackingField: {fileID: 11400000, guid: a8af7e567237b8849915a9af7bbef1e8, type: 2}
     <backDescription>k__BackingField: "\u5411\u4E0B\u9583\u73FE\u5169\u683C(\u53EF\u7A7F\u7246\uFF0C\u5361\u7246\u5247\u5224\u5B9A\u6B7B\u4EA1)"
+  - <Name>k__BackingField: "\u91CD\u529B\u6539\u8B8A"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: 6e1ebe00810f0d14baa66b9ad8dd1256, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 7d61c947e84810b438d0ffcbf3cf4135, type: 2}
+    <frontDescription>k__BackingField: "\u5C07\u91CD\u529B\u65B9\u5411\u6539\u8B8A"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: 6e1ebe00810f0d14baa66b9ad8dd1256, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 11400000, guid: 7d61c947e84810b438d0ffcbf3cf4135, type: 2}
+    <backDescription>k__BackingField: "\u5C07\u91CD\u529B\u65B9\u5411\u6539\u8B8A"
+  - <Name>k__BackingField: "\u770B\u66F8"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: b5191b2fa8398174ba2b46da88e35ad0, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 390a79c48143c784b969f2eff160b79e, type: 2}
+    <frontDescription>k__BackingField: "\u6062\u5FA9 SAN \u503C10\u9EDE"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: 26e66adbcd6c3dc479c1cdb9b46d7ba5, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 0}
+    <backDescription>k__BackingField: "\u6E1B\u5C11 SAN \u503C10\u9EDE\uFF0C\u4E26\u8B93\u95DC\u5361\u5167\u7684\u8C93\u795E\u96D5\u50CF\u548C\u5176\u6700\u8FD1\u7684\u6575\u4EBA\u4EA4\u63DB\u4F4D\u7F6E"
+  - <Name>k__BackingField: "\u958B\u95DC\u71C8"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: bb1dcb23e3812a445bbbdcf120a455d7, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 0}
+    <frontDescription>k__BackingField: "\u5C07\u8996\u91CE\u6062\u5FA9\u6B63\u5E38"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: afc820f4765298d489966ab7476edaa8, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 0}
+    <backDescription>k__BackingField: "\u8996\u91CE\u7E2E\u5C0F\uFF0C\u4F46\u662F\u63A5\u4E0B\u4F86\u7684\u5169\u56DE\u5408\u90FD\u7121\u6575"
+  - <Name>k__BackingField: "\u653B\u64CA"
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: bae8a754c733d534d83011488aadabbf, type: 3}
+    <frontCardEffect>k__BackingField: {fileID: 0}
+    <frontDescription>k__BackingField: "\u53EF\u4EE5\u5411\u524D\u65B9\u653B\u64CA\u53E4\u795E\u5316\u8EAB\uFF0C\u4E26\u5C07\u4E4B\u6D88\u6EC5\uFF0C\u540C\u6642\u6062\u5FA910\u9EDE
+      SAN \u503C"
+    <backSprite>k__BackingField: {fileID: 21300000, guid: cdd5aabbbca33304593747fd8075f9f1, type: 3}
+    <backCardEffect>k__BackingField: {fileID: 0}
+    <backDescription>k__BackingField: "\u53EF\u4EE5\u5411\u5F8C\u65B9\u653B\u64CA\u53E4\u795E\u5316\u8EAB\uFF0C\u4E26\u5C07\u4E4B\u6D88\u6EC5\uFF0C\u540C\u6642\u6062\u5FA910\u9EDE
+      SAN \u503C"
