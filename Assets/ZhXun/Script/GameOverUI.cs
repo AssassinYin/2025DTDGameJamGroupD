@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ZhXun
 {
@@ -14,6 +15,16 @@ namespace ZhXun
         void OpenGameOverUI()
         {
             gameOverUI.SetActive(true);
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene("StartScene");
         }
     }
 }
