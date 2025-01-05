@@ -7,7 +7,6 @@ namespace Taco
     {
         public void EnterGame()
         {
-            SoundManager.PlaySound(SoundType.Click);
             SceneManager.LoadScene("FinalScene");
         }
     }
