@@ -126,6 +126,11 @@ namespace ZhengHua
                 }
             }
 
+            if (!isMoving && rb.linearVelocityX > 0.1f)
+            {
+                rb.linearVelocityX = 0f;
+            }
+
             /// 檢查是否超出地圖持續掉落
             if (!isMoving && rb.linearVelocity.magnitude > 1F)
             {
@@ -141,6 +146,8 @@ namespace ZhengHua
                 isOver = true;
                 GameOverManager.Instance.GameOver();
             }
+
+            ii = PlayerManager.Instance.IsInvinciable;
         }
 
         private void FixedUpdate()
@@ -286,6 +293,7 @@ namespace ZhengHua
             isMoving = false;
             stopTimer = 0f;
             this.transform.position = new Vector3(Mathf.RoundToInt(this.transform.position.x), this.transform.position.y, this.transform.position.z);
+            rb.linearVelocity = Vector2.zero;
             onMoveEnd?.Invoke();
         }
 
@@ -364,9 +372,10 @@ namespace ZhengHua
         {
             if (startPosition != null)
                 this.transform.position = startPosition;
-            isMoving = false;
-            onMoveEnd?.Invoke();
+            ForceStop();
         }
+
+        private bool ii = false;
 
         /// <summary>
         /// 呼叫攻擊物件
