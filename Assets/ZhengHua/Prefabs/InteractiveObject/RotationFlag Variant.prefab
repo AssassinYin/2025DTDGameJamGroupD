@@ -83,5 +83,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5017741106911397897, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5767302082541048210}
   m_SourcePrefab: {fileID: 100100000, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+--- !u!1 &7493487393792773187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5017741106911397897, guid: d7b23d464c177ab48897d5a6eddc1a2f, type: 3}
+  m_PrefabInstance: {fileID: 2476047299801154634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5767302082541048210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7493487393792773187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cc429c1c09dfb45804a1887d27201c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouchExecute: 1
+  rotateScene: {fileID: 0}

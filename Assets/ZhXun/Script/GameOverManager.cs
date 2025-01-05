@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using ZhengHua;
 
 namespace ZhXun
 {
@@ -19,9 +20,10 @@ namespace ZhXun
             Instance = this;
         }
 
-        public void GameOver()
+        public void GameOver(EndingEnum ending = EndingEnum.None)
         {
             Debug.Log("遊戲結束！");
+            PlayerManager.Instance.ending = ending;
             OnGameOver.Invoke();
         }
     }
