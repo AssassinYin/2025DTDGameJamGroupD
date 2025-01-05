@@ -2013,6 +2013,11 @@ Transform:
   - {fileID: 1765643371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1839735485 &1362210701 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 540206883088076014, guid: 4b7ceed43ce47d748a82d09c770905a0, type: 3}
+  m_PrefabInstance: {fileID: 1164322612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1372327147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2267,6 +2272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1233513442405035007, guid: 75628253f8d973a4a913d029695e150f, type: 3}
+      propertyPath: bricks
+      value: 
+      objectReference: {fileID: 1362210701}
     - target: {fileID: 1233513442405035007, guid: 75628253f8d973a4a913d029695e150f, type: 3}
       propertyPath: attackObject
       value: 

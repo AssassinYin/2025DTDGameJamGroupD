@@ -2,6 +2,8 @@
 using UnityEngine.Events;
 using System.Collections;
 using System.Data;
+using UnityEngine.Tilemaps;
+using ZhXun;
 
 namespace ZhengHua
 {
@@ -30,6 +32,9 @@ namespace ZhengHua
         private Transform characterTransform;
 
         private float stopTimer = 0f;
+
+        private float fallTimer = 0f;
+        private bool isOver = false;
 
         /// <summary>
         /// 轉身速度
@@ -111,13 +116,29 @@ namespace ZhengHua
 
             if (isMoving && !isTurnAround)
             {
-                if(Mathf.Abs(targetX - this.transform.position.x) < 0.05f)
+                if (Mathf.Abs(targetX - this.transform.position.x) < 0.05f)
                 {
                     this.isMoving = false;
                     rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                     this.transform.position = new Vector3(targetX, this.transform.position.y, this.transform.position.z);
                     onMoveEnd?.Invoke();
                 }
+            }
+
+            /// 檢查是否超出地圖持續掉落
+            if (!isMoving && rb.linearVelocity.magnitude > 1F)
+            {
+                fallTimer += Time.deltaTime;
+            }
+            else
+            {
+                fallTimer = 0f;
+            }
+            // 掉落時間超過三秒直接判定死亡
+            if(!isOver && fallTimer > 3f)
+            {
+                isOver = true;
+                GameOverManager.Instance.GameOver();
             }
         }
 
@@ -292,7 +313,7 @@ namespace ZhengHua
         public void Teleport(Vector2 position)
         {
             onTurnAroundEnd.AddListener(TeleportExcute);
-            teleportTarget = this.transform.position + new Vector3(position.x, position.y, 0);
+            teleportTarget = this.transform.position + new Vector3(position.x * this.transform.right.x, position.y, 0);
             startPosition = this.transform.position;
             if (position.x < 0)
             {
@@ -305,12 +326,34 @@ namespace ZhengHua
         }
 
         private Vector3 teleportTarget;
+        [SerializeField]
+        private Tilemap bricks;
+
 
         private void TeleportExcute()
         {
             onTurnAroundEnd.RemoveListener(TeleportExcute);
             this.transform.position = teleportTarget;
             onMoveEnd?.Invoke();
+            if (bricks != null)
+            {
+                bool hasBrick = bricks.ContainsTile(bricks.GetTile(bricks.WorldToCell(this.transform.position)));
+                // 檢查玩家傳送後是否卡牆
+                if (hasBrick)
+                {
+                    /// 檢查玩家是否無敵
+                    if (PlayerManager.Instance.IsInvinciable)
+                    {
+                        /// 無敵狀態下，撞到牆壁不會死亡，會回到原點
+                        BackToStartPoint();
+                    }
+                    else
+                    {
+                        isOver = true;
+                        GameOverManager.Instance.GameOver();
+                    }
+                }
+            }
         }
 
         /// <summary>
