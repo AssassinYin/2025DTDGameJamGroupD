@@ -44,7 +44,7 @@ MonoBehaviour:
     <backDescription>k__BackingField: "\u5411\u5F8C\u8DF3\u8E8D1 \u683C\u9AD8\uFF0C2
       \u683C\u9060"
   - <Name>k__BackingField: "\u8DF32\u683C"
-    <frontSprite>k__BackingField: {fileID: 21300000, guid: cbea7d86c264f354b88abf2b7dbf2308, type: 3}
+    <frontSprite>k__BackingField: {fileID: 21300000, guid: 351c22f54a18fb64fabfd487eeaacdfa, type: 3}
     <frontCardEffect>k__BackingField: {fileID: 11400000, guid: 422bad88bca8c9646a729f49846deec2, type: 2}
     <frontDescription>k__BackingField: "\u5411\u524D\u8DF3\u8E8D 2 \u683C\u9AD8\uFF0C4
       \u683C\u9060"
